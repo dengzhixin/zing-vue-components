@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <zingNav logoText="邓志鑫"
+             :menu="menu"
+             @onChange="onChange"></zingNav>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import zingNav from './components/zing-nav.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    zingNav
+  },
+  data () {
+    return {
+      menu: ['首页', '我的作品', '我的简历', '关于']
+    }
+  },
+  methods: {
+    onChange (index) {
+      alert(index)
+    }
   }
 }
 </script>
 
 <style>
+html,
+body,
+#app {
+  width: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
